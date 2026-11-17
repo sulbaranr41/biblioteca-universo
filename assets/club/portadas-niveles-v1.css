@@ -37,8 +37,9 @@ body > header > div {
   text-align: center;
 }
 
-#uuc-niveles-cursos .course > :is(.art, .uuc-curso-img),
-#uuc-niveles-cursos .uuc-curso > .uuc-curso-img {
+/* Catálogo publicado: portadas de fondo, curso con imagen y cursos en desarrollo. */
+#uuc-cursos-gratis .uuc-curso > :is(.uuc-curso-img, .uuc-portada-desarrollo, img) {
+  display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 1 / 1;
@@ -48,10 +49,16 @@ body > header > div {
   background-repeat: no-repeat;
 }
 
-/* Las tres primeras portadas comparten una imagen; encuadrar cada una por separado. */
-#uuc-niveles-cursos .uuc-curso-img:is(.uuc-curso-ia, .uuc-curso-chatgpt, .uuc-curso-auto) {
+#uuc-cursos-gratis .uuc-curso > img {
+  /* Sustituye la altura escrita en la etiqueta de la portada. */
+  height: auto !important;
+  object-fit: cover;
+}
+
+/* Los tres cursos iniciales comparten una imagen; encuadrar cada uno sin deformar. */
+#uuc-cursos-gratis .uuc-curso-img:is(.uuc-curso-ia, .uuc-curso-chatgpt, .uuc-curso-auto) {
   background-size: 397.75785% auto;
 }
-#uuc-niveles-cursos .uuc-curso-img.uuc-curso-ia { background-position: 6.0241% 31.29252%; }
-#uuc-niveles-cursos .uuc-curso-img.uuc-curso-chatgpt { background-position: 50% 31.29252%; }
-#uuc-niveles-cursos .uuc-curso-img.uuc-curso-auto { background-position: 93.9006% 31.29252%; }
+#uuc-cursos-gratis .uuc-curso-img.uuc-curso-ia { background-position: 6.0241% 31.29252%; }
+#uuc-cursos-gratis .uuc-curso-img.uuc-curso-chatgpt { background-position: 50% 31.29252%; }
+#uuc-cursos-gratis .uuc-curso-img.uuc-curso-auto { background-position: 93.9006% 31.29252%; }
