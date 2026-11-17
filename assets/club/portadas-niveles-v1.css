@@ -30,3 +30,28 @@
     padding-inline: clamp(24px, 3vw, 44px);
   }
 }
+
+
+/* Encabezado centrado y portadas cuadradas del catálogo de cursos. */
+body > header > div {
+  text-align: center;
+}
+
+#uuc-niveles-cursos .course > :is(.art, .uuc-curso-img),
+#uuc-niveles-cursos .uuc-curso > .uuc-curso-img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  flex: none;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* Las tres primeras portadas comparten una imagen; encuadrar cada una por separado. */
+#uuc-niveles-cursos .uuc-curso-img:is(.uuc-curso-ia, .uuc-curso-chatgpt, .uuc-curso-auto) {
+  background-size: 397.75785% auto;
+}
+#uuc-niveles-cursos .uuc-curso-img.uuc-curso-ia { background-position: 6.0241% 31.29252%; }
+#uuc-niveles-cursos .uuc-curso-img.uuc-curso-chatgpt { background-position: 50% 31.29252%; }
+#uuc-niveles-cursos .uuc-curso-img.uuc-curso-auto { background-position: 93.9006% 31.29252%; }
