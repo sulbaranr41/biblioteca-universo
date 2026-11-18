@@ -62,3 +62,219 @@ body > header > div {
 #uuc-cursos-gratis .uuc-curso-img.uuc-curso-ia { background-position: 6.0241% 31.29252%; }
 #uuc-cursos-gratis .uuc-curso-img.uuc-curso-chatgpt { background-position: 50% 31.29252%; }
 #uuc-cursos-gratis .uuc-curso-img.uuc-curso-auto { background-position: 93.9006% 31.29252%; }
+
+
+/* Área de miembros · azul tecnológico y catálogos compactos. */
+:root:root {
+  --navy: #102746;
+  --blue: #076a81;
+  --ink: #152942;
+  --muted: #536b85;
+  --line: #dce8f0;
+  --club-accent: #1bc3d4;
+  --club-accent-text: #007689;
+  --club-accent-soft: #dcf6f8;
+  --club-card-cols: 2;
+  --club-card-gap: clamp(10px, 1.2vw, 18px);
+}
+@media (min-width: 740px) { :root:root { --club-card-cols: 3; } }
+@media (min-width: 930px) { :root:root { --club-card-cols: 4; } }
+@media (min-width: 1100px) { :root:root { --club-card-cols: 5; } }
+@media (max-width: 350px) { :root:root { --club-card-cols: 1; } }
+
+html body {
+  background: #f1f6fa;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+body > header {
+  background: linear-gradient(115deg, #0c192c 0%, #102b4f 100%);
+  padding-block: 26px 30px;
+}
+body > header h1 {
+  font-family: Manrope, Inter, system-ui, sans-serif;
+  font-size: clamp(30px, 4vw, 42px);
+  letter-spacing: -.025em;
+  margin: 8px 0;
+}
+body > header small { color: #44dce5; letter-spacing: .24em; font-weight: 750; }
+body > header p { margin: 8px auto 10px; color: #e4edf8; font-size: 14px; }
+body > header a { color: #54e2ea; font-size: 13px; text-underline-offset: 3px; }
+body > main section[aria-label*="Cupos"] .toolbar strong {
+  color: var(--club-accent-text);
+  font-size: 1.2em;
+}
+body main button.secondary { background: var(--club-accent-soft); color: #103a4d; }
+body main .badge { background: var(--club-accent-soft); color: #104c5c; }
+body #account:has(#uuc-nav-superior:not([hidden])) #stateText.notice {
+  background: #eaf9fa;
+  border-left-color: var(--club-accent);
+}
+body #uuc-nav-superior { border-color: var(--line); }
+body #uuc-nav-superior button { color: var(--ink); }
+body #uuc-nav-superior button:hover { background: #edf9fa; }
+body #uuc-nav-superior button[aria-pressed="true"] {
+  background: var(--club-accent-soft);
+  color: #103a4d;
+  box-shadow: inset 0 -3px var(--club-accent);
+}
+body #uuc-nav-superior #uuc-invitar-superior { background: var(--club-accent); color: #081f31; }
+body #uuc-nav-superior #uuc-invitar-superior:hover { background: #61dbe5; }
+body main :is(a,button,input):focus-visible { outline: 2px solid #078295; outline-offset: 3px; }
+
+body #uuc-cursos-gratis .uuc-cursos-grid,
+.uuc-area[data-uuc-area="recursos"] #cards,
+#uucSkills #skillCards {
+  display: grid;
+  grid-template-columns: repeat(var(--club-card-cols), minmax(0, 1fr));
+  gap: var(--club-card-gap);
+}
+#uuc-cursos-gratis .uuc-curso,
+.uuc-area[data-uuc-area="recursos"] :is(#cards,#skillCards) > .card,
+.uuc-area[data-uuc-area="ebooks"] :is(.club-book,.exclusive-card) {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 4px 13px #1027460b;
+}
+body #uuc-cursos-gratis .uuc-curso-cuerpo,
+#uucClubLibrary #uucClubBooks .club-book-copy,
+.uuc-area[data-uuc-area="ebooks"] .exclusive-card > div {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  padding: 11px;
+}
+body #uuc-cursos-gratis .uuc-curso-cuerpo h3,
+#uucClubLibrary #uucClubBooks .club-book-copy h3,
+.uuc-area[data-uuc-area="ebooks"] .exclusive-card h3,
+.uuc-area[data-uuc-area="recursos"] :is(#cards,#skillCards) > .card h3 {
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.35;
+  font-weight: 750;
+  color: var(--ink);
+  margin: 0 0 8px;
+  overflow-wrap: anywhere;
+}
+body #uuc-cursos-gratis .uuc-curso-cuerpo > p,
+#uucClubLibrary #uucClubBooks .club-book-copy > p,
+.uuc-area[data-uuc-area="recursos"] :is(#cards,#skillCards) > .card > p,
+.uuc-area[data-uuc-area="ebooks"] .exclusive-card > div > p:not([id]) {
+  display: none;
+}
+body #uuc-cursos-gratis .uuc-curso-pie { padding-top: 0; border-top: 0; }
+.uuc-area[data-uuc-area="recursos"] :is(#cards,#skillCards) > .card {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+.uuc-area[data-uuc-area="recursos"] :is(#cards,#skillCards) > .card[hidden] { display: none; }
+.uuc-area[data-uuc-area="recursos"] :is(#cards,#skillCards) > .card > :first-child {
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 1 / 1;
+  flex: none;
+  margin: 0;
+  border-radius: 0;
+}
+.uuc-area[data-uuc-area="recursos"] :is(#cards,#skillCards) > .card > .skill-art {
+  padding: 10px;
+  align-items: center;
+  justify-content: center;
+}
+.uuc-area[data-uuc-area="recursos"] #skillCards > .card > .skill-art small { display: none; }
+.uuc-area[data-uuc-area="recursos"] :is(#cards,#skillCards) > .card > .badge {
+  align-self: flex-start;
+  margin: 10px 10px 5px;
+  font-size: 11px;
+  padding: 3px 6px;
+  max-width: calc(100% - 20px);
+}
+.uuc-area[data-uuc-area="recursos"] :is(#cards,#skillCards) > .card > h3 { margin-inline: 11px; }
+.uuc-area[data-uuc-area="recursos"] :is(#cards,#skillCards) > .card > :is(button,.linkbtn) {
+  align-self: stretch;
+  margin: auto 11px 11px;
+}
+.uuc-area[data-uuc-area="recursos"] :is(#cards,#skillCards) > .card > button + .linkbtn {
+  margin-top: 0;
+  overflow-wrap: anywhere;
+}
+body #uuc-cursos-gratis .uuc-curso-pie :is(button,a),
+#uucClubLibrary #uucClubBooks .club-book-copy > button,
+.uuc-area[data-uuc-area="ebooks"] .exclusive-card > div > button,
+.uuc-area[data-uuc-area="recursos"] :is(#cards,#skillCards) > .card > :is(button,.linkbtn) {
+  min-height: 40px;
+  padding: 8px 6px;
+  font-size: 11px;
+  line-height: 1.25;
+  text-align: center;
+  color: #fff;
+  background-color: var(--blue);
+}
+body #uuc-cursos-gratis .uuc-curso-pie :is(button,a) { width: 100%; margin: 0; }
+#uucClubLibrary #uucClubBooks .club-book-copy > button,
+.uuc-area[data-uuc-area="ebooks"] .exclusive-card > div > button { width: 100%; margin: auto 0 0; }
+body #uuc-cursos-gratis .uuc-curso button:disabled,
+#uucClubLibrary #uucClubBooks .club-book-copy > button:disabled,
+.uuc-area[data-uuc-area="ebooks"] .exclusive-card button:disabled,
+.uuc-area[data-uuc-area="recursos"] :is(#cards,#skillCards) > .card > button:disabled {
+  background: #e3f0f6;
+  color: #264b63;
+  opacity: 1;
+}
+
+/* Una sola cuadrícula visual; los cuatro lectores conservan sus controles originales. */
+.uuc-area[data-uuc-area="ebooks"]:not([hidden]) {
+  display: grid;
+  grid-template-columns: repeat(var(--club-card-cols), minmax(0, 1fr));
+  gap: var(--club-card-gap);
+  padding: clamp(12px, 2vw, 24px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #fff;
+}
+.uuc-area[data-uuc-area="ebooks"] > :is(#uucClubLibrary,#uucExclusiveBook,#uucMiroExclusiveBook,#uucAdobeExclusiveBook):not([hidden]),
+#uucClubLibrary #uucClubBooks { display: contents; }
+#uucClubLibrary > :is(.toolbar,.library-tools,.library-state,p.muted) { grid-column: 1 / -1; margin: 0; }
+body #uucClubLibrary .library-tools { margin: 0; }
+body #uucClubLibrary .library-tools > div { min-width: min(220px, 100%); }
+body #uucClubLibrary .library-state { background: #edf8fa; padding: 10px 12px; }
+#uucClubLibrary > p.muted { order: 2; }
+.uuc-area[data-uuc-area="ebooks"] > :is(#uucExclusiveBook,#uucMiroExclusiveBook,#uucAdobeExclusiveBook) > :not(.exclusive-card) { display: none; }
+.uuc-area[data-uuc-area="ebooks"] > :is(#uucExclusiveBook,#uucMiroExclusiveBook,#uucAdobeExclusiveBook) > .exclusive-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  gap: 0;
+  order: 1;
+}
+body #uucClubLibrary #uucClubBooks .club-book-cover,
+.uuc-area[data-uuc-area="ebooks"] .exclusive-card > img:not([hidden]) {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  flex: none;
+  padding: 6px;
+  background: #102746;
+  border-radius: 0;
+}
+.uuc-area[data-uuc-area="ebooks"] .exclusive-card > img:not([hidden]) { display: block; object-fit: contain; }
+#uucClubLibrary #uucClubBooks .club-book-cover > img {
+  display: block;
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+body #uucClubLibrary #uucClubBooks .club-book-fallback { font-size: 14px; padding: 6px; }
+#uucClubLibrary .library-tools label::after {
+  content: " · Los ebooks exclusivos se muestran al final.";
+  font-weight: 400;
+  color: var(--muted);
+}
+.uuc-area[data-uuc-area="ebooks"] .exclusive-card > div > p[id] { font-size: 12px; margin: 3px 0 0; }
+.uuc-area[data-uuc-area="ebooks"] .exclusive-card > div > p[id]:empty { display: none; }
