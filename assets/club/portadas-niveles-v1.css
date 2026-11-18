@@ -337,3 +337,52 @@ body #uuc-cursos-gratis .uuc-curso #abrirCursoChatGPT {
   line-height: 1.25;
   text-align: center;
 }
+
+
+/* Preestrenos: tarjetas compactas con las dos fechas y la acción original. */
+body #uucPreestrenos #preCards {
+  display: grid;
+  grid-template-columns: repeat(var(--club-card-cols), minmax(0, 1fr));
+  gap: var(--club-card-gap);
+}
+body #uucPreestrenos #preCards > article {
+  border-color: var(--line);
+  box-shadow: 0 4px 13px #1027460b;
+}
+body #uucPreestrenos #preCards > article > :is(.badge, p:not(.pre-dates)) {
+  display: none;
+}
+body #uucPreestrenos #preCards > article > .pre-symbol {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  flex: none;
+}
+body #uucPreestrenos #preCards > article > h3 {
+  margin: 11px 11px 7px;
+  color: var(--ink);
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.35;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+body #uucPreestrenos #preCards > article > .pre-dates {
+  margin: auto 11px 9px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+body #uucPreestrenos #preCards > article > button {
+  align-self: stretch;
+  margin: 0 11px 11px;
+  padding: 8px 6px;
+  min-height: 40px;
+  font-size: 11px;
+  line-height: 1.25;
+  white-space: normal;
+  text-align: center;
+}
+body #uucPreestrenos #preCards > article > button:disabled {
+  background: #e3f0f6;
+  color: #264b63;
+  opacity: 1;
+}
