@@ -278,3 +278,62 @@ body #uucClubLibrary #uucClubBooks .club-book-fallback { font-size: 14px; paddin
 }
 .uuc-area[data-uuc-area="ebooks"] .exclusive-card > div > p[id] { font-size: 12px; margin: 3px 0 0; }
 .uuc-area[data-uuc-area="ebooks"] .exclusive-card > div > p[id]:empty { display: none; }
+
+
+/* Portadas de la biblioteca: mismo marco vertical y sin deformar la imagen. */
+body #uucClubLibrary #uucClubBooks .club-book-cover,
+.uuc-area[data-uuc-area="ebooks"] .exclusive-card > :is(#uucExclusiveCover, #uucMiroExclusiveCover, #uucAdobeExclusiveCover):not([hidden]) {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  aspect-ratio: 2 / 3;
+  flex: none;
+  padding: 6px;
+  border-radius: 0;
+  background: #102746;
+}
+body #uucClubLibrary #uucClubBooks .club-book-cover { position: relative; }
+body #uucClubLibrary #uucClubBooks .club-book-cover > img {
+  position: absolute;
+  inset: 6px;
+  width: calc(100% - 12px);
+  height: calc(100% - 12px);
+  object-fit: contain;
+  object-position: center;
+}
+.uuc-area[data-uuc-area="ebooks"] .exclusive-card > :is(#uucExclusiveCover, #uucMiroExclusiveCover, #uucAdobeExclusiveCover):not([hidden]) {
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* La ficha del curso de nivel 4 tiene un cuerpo distinto en la plantilla. */
+body #uuc-cursos-gratis .uuc-curso > div:has(> #abrirCursoChatGPT) {
+  padding: 11px !important;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+body #uuc-cursos-gratis .uuc-curso > div:has(> #abrirCursoChatGPT) > p {
+  display: none;
+}
+body #uuc-cursos-gratis .uuc-curso > div:has(> #abrirCursoChatGPT) h3 {
+  margin: 0 0 8px;
+  font-size: clamp(13px, 1.1vw, 16px);
+  line-height: 1.35;
+  font-weight: 750;
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+body #uuc-cursos-gratis .uuc-curso #abrirCursoChatGPT {
+  width: 100%;
+  min-height: 40px;
+  margin: auto 0 0;
+  padding: 8px 6px;
+  font-size: 11px;
+  line-height: 1.25;
+  text-align: center;
+}
